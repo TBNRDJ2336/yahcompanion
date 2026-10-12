@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>YAHCompanion – A Bible Companion</title>
+<style>
+:root{--bg:#f6f0e4;--card:#fffaf0;--ink:#3b2a20;--mut:#7a6552;--acc:#8a5a2b;--ol:#5f6f3a;--line:#e2d5bd;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#1b1610;--card:#272017;--ink:#f1e6d2;--mut:#b9a68b;--acc:#d9a35f;--ol:#a4b86a;--line:#3d3324}}
+:root[data-theme=dark]{--bg:#1b1610;--card:#272017;--ink:#f1e6d2;--mut:#b9a68b;--acc:#d9a35f;--ol:#a4b86a;--line:#3d3324}
+html{scroll-behavior:smooth;scroll-padding-top:env(safe-area-inset-top,0px)}
+*{scrollbar-width:thin;scrollbar-color:color-mix(in srgb,var(--acc) 45%,var(--bg)) var(--bg)}
+::-webkit-scrollbar{width:10px;height:8px}
+::-webkit-scrollbar-track{background:var(--bg)}
+::-webkit-scrollbar-thumb{background:color-mix(in srgb,var(--acc) 45%,var(--bg));border-radius:99px;border:2px solid var(--bg)}
+::-webkit-scrollbar-thumb:hover{background:var(--acc)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.65 Georgia,'Times New Roman',serif}
+h1,h2,h3{font-weight:800;line-height:1.2;margin:0 0 .5em}
+h1{font-size:clamp(2rem,6vw,3.2rem);letter-spacing:-.5px}
+h2{font-size:clamp(1.5rem,4vw,2rem);color:var(--acc)}
+.wrap{max-width:900px;margin:0 auto;padding:0 18px}
+.hero{text-align:center;padding:36px 0 20px}
+.hero svg{width:100%;max-width:520px;height:auto;border-radius:20px}
+.hero p{color:var(--mut);max-width:560px;margin:0 auto 14px}
+.seg{display:inline-flex;border:2px solid var(--acc);border-radius:99px;overflow:hidden}
+.seg button{border:0;background:none;color:var(--acc);padding:8px 18px;font:inherit;font-weight:700;cursor:pointer}
+.seg button.on{background:var(--acc);color:var(--bg)}
+section{padding:34px 0}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
+.card{background:var(--card);border:1px solid var(--line);border-left:5px solid var(--ol);border-radius:14px;padding:14px 18px;margin:12px 0;box-shadow:0 3px 12px rgba(80,50,20,.08)}
+.card b{display:block;color:var(--acc);font-size:1.05rem}
+.card p{margin:.3em 0}.card small{color:var(--mut)}
+.tabs{display:flex;gap:8px;overflow-x:auto;padding-bottom:8px}
+.tabs button,.chip{border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:99px;padding:8px 14px;font:inherit;cursor:pointer;white-space:nowrap;transition:.2s}
+.tabs button.on{background:var(--acc);color:var(--bg);border-color:var(--acc);font-weight:700}
+.chip:hover,.tabs button:hover{transform:translateY(-2px)}
+.panel{display:none}.panel.on{display:block}
+.sb{display:flex;gap:8px;margin:14px 0 8px}
+.sb input{flex:1;min-width:0;padding:12px 16px;border-radius:99px;border:2px solid var(--line);background:var(--card);color:var(--ink);font:inherit}
+.sb input:focus{outline:none;border-color:var(--acc)}
+.sb button{border:0;border-radius:99px;background:var(--ol);color:#fff;padding:0 20px;font:inherit;font-weight:700;cursor:pointer}
+.eg{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:6px}
+.bk{display:inline-block;padding:4px 12px;margin:3px;border-radius:8px;font-size:.92rem;border:1px solid rgba(0,0,0,.25)}
+.rv{opacity:0;transform:translateY(30px);transition:opacity .7s ease,transform .7s ease}
+.rv.in{opacity:1;transform:none}
+footer{text-align:center;color:var(--mut);padding:30px 18px 40px;font-size:.9rem}
+</style></head><body>
+<header class="hero wrap">
+<svg viewBox="0 0 400 170" role="img" aria-label="Sunrise over hills with a cross">
+<defs><linearGradient id="s" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f3c77a"/><stop offset="1" stop-color="#f9e9c8"/></linearGradient></defs>
+<rect width="400" height="170" fill="url(#s)"/><circle cx="200" cy="95" r="46" fill="#e8913a" opacity=".85"/><circle cx="200" cy="95" r="70" fill="#e8913a" opacity=".2"/>
+<path d="M0 130 Q70 85 150 120 T300 110 T400 125 V170 H0Z" fill="#8a9a4b"/><path d="M0 150 Q100 115 200 145 T400 140 V170 H0Z" fill="#5f6f3a"/>
+<path d="M200 38v62M184 56h32" stroke="#5b3a29" stroke-width="7" stroke-linecap="round"/></svg>
+<h1 class="rv">YAHCompanion</h1>
+<p class="rv"><b>A Bible companion</b> for the quiet moments, the hard ones, and the curious ones. <i>Selah</i> – pause and listen.</p>
+</header>
+
+<section class="wrap"><h2 class="rv">Made for every season</h2>
+<div class="grid">
+<div class="card rv"><b>🕯️ Low moments</b><p>Tell us how you feel and receive a verse that meets you there.</p></div>
+<div class="card rv" style="border-left-color:#c0792b"><b>🧭 Honest questions</b><p>Straight answers to the questions seekers often ask.</p></div>
+<div class="card rv" style="border-left-color:#7b4a2a"><b>📚 66 books, colour-coded</b><p>Browse the whole Bible by its twelve groups.</p></div>
+</div></section>
+
+<main class="wrap" id="app"><h2 class="rv">Explore</h2><div class="tabs rv" id="tabs"></div><div id="panels"></div></main>
+<footer class="rv">Verses are from the King James Version (public domain). The built-in library is small and grows as you add to it.</footer>
+
+<script>
+const $=s=>document.querySelector(s);
+const esc=s=>s.replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const nz=s=>s.toLowerCase().replace(/\./g,' ').replace(/psalms/,'psalm').replace(/revelations/,'revelation').replace(/\s+/g,' ').trim();
+/* [reference, KJV text, description] */
+const V=[
+["Psalm 9:1","I will praise thee, O LORD, with my whole heart; I will shew forth all thy marvellous works.","David chooses wholehearted thanks to God, shifting focus from isolation to God's presence."],
+["Colossians 3:13","Forbearing one another, and forgiving one another, if any man have a quarrel against any: even as Christ forgave you, so also do ye.","Paul asks believers to forgive others the way Christ forgave them."],
+["Psalm 55:22","Cast thy burden upon the LORD, and he shall sustain thee: he shall never suffer the righteous to be moved.","Written in a time of betrayal: hand your worries to God, who holds you steady."],
+["Psalm 119:81","My soul fainteth for thy salvation: but I hope in thy word.","Worn out from waiting, the writer still anchors hope in God's word."],
+["Matthew 17:21","Howbeit this kind goeth not out but by prayer and fasting.","Jesus teaches that some battles are won through prayer and fasting. (Some modern translations omit this verse.)"],
+["Isaiah 1:19","If ye be willing and obedient, ye shall eat the good of the land:","God invites willing obedience and promises blessing."],
+["Isaiah 41:10","Fear thou not; for I am with thee: be not dismayed; for I am thy God: I will strengthen thee; yea, I will help thee; yea, I will uphold thee with the right hand of my righteousness.","God's promise to be present, strengthening and upholding His people."],
+["Psalm 34:18","The LORD is nigh unto them that are of a broken heart; and saveth such as be of a contrite spirit.","God draws especially close to the heartbroken."],
+["1 John 1:9","If we confess our sins, he is faithful and just to forgive us our sins, and to cleanse us from all unrighteousness.","Honest confession is met with faithful forgiveness and a clean start."],
+["Matthew 11:28","Come unto me, all ye that labour and are heavy laden, and I will give you rest.","Jesus invites the weary to bring their burdens to Him."],
+["James 1:5","If any of you lack wisdom, let him ask of God, that giveth to all men liberally, and upbraideth not; and it shall be given him.","Confused? Ask God for wisdom; He gives generously and without scolding."],
+["Jeremiah 29:11","For I know the thoughts that I think toward you, saith the LORD, thoughts of peace, and not of evil, to give you an expected end.","Spoken to exiles: God has good plans and a future for them."],
+["1 Thessalonians 5:18","In every thing give thanks: for this is the will of God in Christ Jesus concerning you.","Gratitude is a steady habit, even in hard circumstances."],
+["John 3:16","For God so loved the world, that he gave his only begotten Son, that whosoever believeth in him should not perish, but have everlasting life.","The heart of the Gospel: God's love expressed in giving His Son."],
+["Psalm 23:1","The LORD is my shepherd; I shall not want.","David pictures God as a shepherd who provides and guides."],
+["Genesis 1:1","In the beginning God created the heaven and the earth.","The Bible opens by declaring God as the Creator of everything."],
+["Proverbs 3:5","Trust in the LORD with all thine heart; and lean not unto thine own understanding.","Wisdom begins with trusting God over our own limited view."],
+["Philippians 4:13","I can do all things through Christ which strengtheneth me.","Paul, writing from prison, says Christ gives strength for every situation."],
+["Romans 8:28","And we know that all things work together for good to them that love God, to them who are the called according to his purpose.","God works through even painful events for good."],
+["John 14:6","Jesus saith unto him, I am the way, the truth, and the life: no man cometh unto the Father, but by me.","Jesus describes Himself as the path to God the Father."],
+["Ephesians 2:8","For by grace are ye saved through faith; and that not of yourselves: it is the gift of God:","Salvation is a gift received by faith, not earned."]
+];
+/* [label, keywords, message, reference] */
+const F=[
+["Lonely",["lonely","alone","disconnected"],"Feeling disconnected? Worship draws you back into God's presence.","Psalm 9:1"],
+["Angry",["angry","anger","rage","furious","hurt"],"Anger often grows from a wound. Forgiveness is where healing begins.","Colossians 3:13"],
+["Anxious",["anxious","anxiety","worried","worry","stress"],"When worry gets loud, surrender it to God. You don't carry it alone.","Psalm 55:22"],
+["Hopeless",["hopeless","depressed","sad","down"],"When hope runs thin, God's word is a place to rest and be renewed.","Psalm 119:81"],
+["Tempted",["tempted","lustful","temptation","addicted"],"Struggling with temptation? Prayer and fasting build strength to stand.","Matthew 17:21"],
+["Stuck",["stuck","lost","directionless"],"Feeling stuck? Willing obedience opens the way forward.","Isaiah 1:19"],
+["Afraid",["afraid","fear","scared"],"Fear is real, and so is the One who stays beside you.","Isaiah 41:10"],
+["Grieving",["grieving","grief","heartbroken","broken"],"Your pain is seen. You are not walking through it alone.","Psalm 34:18"],
+["Guilty",["guilty","shame","ashamed"],"You can be forgiven and begin again.","1 John 1:9"],
+["Tired",["tired","exhausted","weary","burned out"],"Come as you are and rest.","Matthew 11:28"],
+["Confused",["confused","doubt","doubting","questioning"],"Questions are welcome. Ask for wisdom.","James 1:5"],
+["Uncertain",["uncertain","future","unsure"],"The future feels foggy, but it is not hidden from God.","Jeremiah 29:11"],
+["Grateful",["grateful","thankful","happy","joy"],"Thankfulness deepens joy. Keep it going.","1 Thessalonians 5:18"]
+];
+const C=[
+["Abraham","🌟","Father of faith. God called him to leave home and promised him a great nation. Events: the covenant (Gen 12–17), the birth of Isaac, and the test on Mount Moriah (Gen 22)."],
+["Moses","🔥","Prophet and lawgiver. Events: the burning bush, the ten plagues, crossing the Red Sea, and receiving the Ten Commandments at Sinai."],
+["David","🎵","Shepherd boy turned king and writer of many psalms. Events: defeating Goliath (1 Sam 17), becoming king, his sin with Bathsheba and repentance (Ps 51)."],
+["Ruth","🌾","A Moabite widow famous for loyalty to Naomi. Events: moving to Bethlehem, gleaning in Boaz's field, becoming David's great-grandmother."],
+["Esther","👑","Jewish queen of Persia who risked her life for her people. Events: becoming queen, exposing Haman's plot, the feast of Purim."],
+["Daniel","🦁","An exile in Babylon who stayed faithful to God. Events: interpreting dreams for Nebuchadnezzar, the lions' den (Dan 6), visions of future kingdoms."],
+["Mary","🕊️","Mother of Jesus. Events: the angel's announcement, Jesus' birth in Bethlehem, standing near the cross."],
+["Peter","🎣","Fisherman and leading apostle. Events: walking on water, denying Jesus three times, being restored, preaching at Pentecost (Acts 2)."],
+["Paul","✉️","Once the persecutor Saul, he met Christ on the Damascus road. Events: three missionary journeys, imprisonment in Rome, writing many New Testament letters."]
+];
+const Q=[
+["Who is Jesus?","Christians believe Jesus is the Son of God who became human, lived without sin, died on the cross and rose again (John 3:16; John 14:6)."],
+["Why does God allow suffering?","The Bible gives no single simple answer. It shows God close to those who hurt (Psalm 34:18) and says suffering will not have the last word (Romans 8:28; Revelation 21:4)."],
+["Is the Bible reliable?","It is a library of 66 books by about 40 authors over roughly 1,500 years. Believers hold it as inspired; historians also study it as an ancient source. Reading it yourself is a good start."],
+["How do I start reading it?","Begin with the Gospel of John or Mark, then Psalms and Proverbs. A few verses a day is enough."],
+["What is grace?","Grace is God's undeserved kindness: forgiveness and new life offered as a gift, not earned (Ephesians 2:8)."],
+["How do I pray?","Simply talk with God: thank Him, be honest about your struggles, and ask for what you need. No special words are required."],
+["Can I come to God as I am?","Yes. Jesus invited the weary to come to Him for rest (Matthew 11:28)."]
+];
+/* [group, background, text colour, books] */
+const B=[
+["LAWS · Emerald Green","#50C878","#08301a","Genesis,Exodus,Leviticus,Numbers,Deuteronomy"],
+["HISTORY · Brown","#7b4a2a","#fff","Joshua,Judges,Ruth,1 Samuel,2 Samuel,1 Kings,2 Kings,1 Chronicles,2 Chronicles,Ezra,Nehemiah,Esther"],
+["POETRY · Scarlet","#ff2400","#fff","Job,Psalms,Proverbs,Ecclesiastes,Song of Solomon"],
+["MAJOR PROPHETS · Bronze","#cd7f32","#2a1600","Isaiah,Jeremiah,Lamentations,Ezekiel,Daniel"],
+["MINOR PROPHETS · Silver","#c0c0c0","#222","Hosea,Joel,Amos,Obadiah,Jonah,Micah,Nahum,Habakkuk,Zephaniah,Haggai,Zechariah,Malachi"],
+["GOSPELS · Purple","#6a1b9a","#fff","Matthew,Mark,Luke,John"],
+["HISTORY OF THE CHURCH · Blue","#1e66d0","#fff","Acts"],
+["LETTERS · Green","#2e9e3e","#fff","Romans,1 Corinthians,2 Corinthians,Galatians"],
+["PRISON LETTERS · White","#ffffff","#222","Ephesians,Philippians,Colossians"],
+["PASTORAL LETTERS · Red","#d32f2f","#fff","1 Thessalonians,2 Thessalonians,1 Timothy,2 Timothy,Titus,Philemon"],
+["GENERAL LETTERS · Black","#111111","#fff","Hebrews,James,1 Peter,2 Peter,1 John,2 John,3 John,Jude"],
+["PROPHETIC BOOK · Gold","#d4af37","#2a2000","Revelation"]
+];
+const byRef=q=>V.find(v=>nz(v[0])==nz(q));
+const bySearch=q=>{const w=nz(q).split(' ').filter(x=>x.length>2);if(!w.length)return[];return V.map(v=>[w.filter(x=>v[1].toLowerCase().includes(x)).length,v]).filter(a=>a[0]).sort((a,b)=>b[0]-a[0]).slice(0,4).map(a=>a[1])};
+const card=(h,b,s)=>`<div class="card rv"><b>${h}</b><p>${b}</p>${s?`<small>${s}</small>`:''}</div>`;
+const vc=(v,d)=>card(v[0],'“'+v[1]+'”',d?v[2]:'');
+const none=card('Nothing found yet','That one is not in the built-in library. Try one of the examples above.');
+const note=()=>'Take a breath (Selah) and read it slowly.';
+const T={
+feel:{n:'💗 Feelings',ph:'How are you feeling? e.g. lonely, anxious, angry',eg:F.map(f=>f[0]),run:q=>{q=q.toLowerCase();const f=F.find(f=>f[1].some(k=>q.includes(k)));return f?card(f[0],f[2],note())+vc(byRef(f[3])):none}},
+find:{n:'🔎 Find Reference',ph:'Type words from a verse, e.g. loved the world',eg:['loved the world','burden','good courage','shepherd'],run:q=>{const r=bySearch(q);return r.length?r.map(v=>vc(v)).join(''):none}},
+ref:{n:'📖 Find Verse',ph:'Type a reference, e.g. John 3:16',eg:['John 3:16','Psalm 23:1','Isaiah 41:10'],run:q=>{const v=byRef(q);return v?vc(v):none}},
+desc:{n:'💡 Explain Verse',ph:'Reference or words, e.g. Romans 8:28',eg:['Romans 8:28','Philippians 4:13','Proverbs 3:5'],run:q=>{const v=byRef(q)||bySearch(q)[0];return v?vc(v,1):none}},
+chr:{n:'🧑‍🤝‍🧑 Characters',ph:'Search a person, e.g. David',eg:C.map(c=>c[0]),all:1,run:q=>{const r=C.filter(c=>c[0].toLowerCase().includes(q.toLowerCase()));return r.length?r.map(c=>card(c[1]+' '+c[0],c[2])).join(''):none}},
+qa:{n:'❓ Q&A',ph:'Search questions, e.g. grace',eg:[],all:1,run:q=>{const r=Q.filter(x=>(x[0]+x[1]).toLowerCase().includes(q.toLowerCase()));return r.length?r.map(x=>card(x[0],x[1])).join(''):none}},
+books:{n:'📚 Books',ph:'Search a book, e.g. Ruth',eg:[],all:1,run:q=>{q=q.toLowerCase();return B.map(g=>{const bs=g[3].split(',').filter(b=>b.toLowerCase().includes(q));return bs.length?`<div class="card rv" style="border-left-color:${g[1]}"><b>${g[0]}</b>${bs.map(b=>`<span class="bk" style="background:${g[1]};color:${g[2]}">${b}</span>`).join('')}</div>`:''}).join('')||none}}
+};
+const io=new IntersectionObserver(es=>es.forEach(e=>e.target.classList.toggle('in',e.isIntersecting)),{threshold:.12});
+const watch=r=>r.querySelectorAll('.rv').forEach(el=>io.observe(el));
+const tabs=$('#tabs'),panels=$('#panels');
+Object.keys(T).forEach((k,i)=>{
+ const t=T[k];
+ tabs.insertAdjacentHTML('beforeend',`<button data-k="${k}" class="${i?'':'on'}">${t.n}</button>`);
+ panels.insertAdjacentHTML('beforeend',`<div class="panel ${i?'':'on'}" id="p-${k}"><div class="sb"><input placeholder="${esc(t.ph)}" aria-label="Search"><button>Search</button></div><div class="eg">${t.eg.map(e=>`<button class="chip">${esc(e)}</button>`).join('')}</div><div class="out"></div></div>`);
+ const p=$('#p-'+k),inp=p.querySelector('input'),out=p.querySelector('.out');
+ const go=()=>{const q=inp.value.trim();out.innerHTML=q||t.all?t.run(q):card('Search above','Type something or tap an example.');watch(out);requestAnimationFrame(()=>out.querySelectorAll('.rv').forEach(e=>e.classList.add('in')))};
+ p.querySelector('.sb button').onclick=go;inp.onkeydown=e=>{if(e.key=='Enter')go()};
+ p.querySelectorAll('.chip').forEach(c=>c.onclick=()=>{inp.value=c.textContent;go()});
+ p._go=go;if(t.all)go();
+});
+tabs.onclick=e=>{const k=e.target.dataset.k;if(!k)return;tabs.querySelectorAll('button').forEach(b=>b.classList.toggle('on',b.dataset.k==k));document.querySelectorAll('.panel').forEach(p=>p.classList.toggle('on',p.id=='p-'+k));watch($('#p-'+k))};
+watch(document);
+</script></body></html>
